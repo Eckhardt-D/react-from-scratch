@@ -1,0 +1,16 @@
+.box {
+  width: 200px;
+  height: 200px;
+}
+
+.boxOne {
+  background: red;
+}
+
+.boxTwo {
+  background: blue;
+}
+
+.boxThree {
+  background: green;
+}
