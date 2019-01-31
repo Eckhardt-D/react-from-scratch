@@ -41,8 +41,13 @@ class Recipes extends Component {
             <CardBody>
               <CardTitle style={{fontSize: "1.2em", fontWeight: "bold"}}>{recipe.name}</CardTitle>
               <CardSubtitle style={{color: "darkgrey"}}>{recipe.time} min</CardSubtitle>
-              <CardText>{recipe.description}</CardText>
-              <Button>Read</Button>
+              <CardText>{recipe.description.substring(0, 50) + '...'}</CardText>
+              <Button className="p-0">
+              <a 
+                className="my-5 mx-3" 
+                style={{textDecoration: 'none', lineHeight:'2', color: 'white'}} 
+                href={'/recipe/'+recipe.id}>Read</a>
+              </Button>
             </CardBody>
           </Card>
         </Col>

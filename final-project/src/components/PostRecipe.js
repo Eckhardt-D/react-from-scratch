@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import update from 'immutability-helper'
+import newUid from 'uuid/v1'
 
 import { createRecipe } from '../actions/recipeActions'
 import IngredientInput from './IngredientInput'
@@ -52,6 +53,7 @@ class PostForm extends Component {
 
     const recipe = {
       name: this.state.name,
+      id: newUid(),
       description: this.state.description,
       ingredients: this.state.ingredients,
       instructions: this.state.instructions,
@@ -132,7 +134,7 @@ class PostForm extends Component {
           <br />
           <div>
           <InputGroup>
-            <Input type="textarea" id="initialInput" onChange={e => this.onChangeIngredient(e, 0)} name="ingredient" placeholder="Cooking Instructions" />
+            <Input type="textarea" id="initialInput" onChange={e => this.onChangeIngredient(e, 0)} name="instructions" placeholder="Cooking Instructions" />
           </InputGroup>
           </div>
           <br />

@@ -21,6 +21,8 @@ export const createRecipe = recipeData => dispatch => {
     localforage.getItem('recipes').then(data => {
       if(data) {
         let newData = data.push(recipeData)
+        console.log(data, newData)
+
         localforage.setItem('recipes', newData)
       } else {
         localforage.setItem('recipes', [recipeData])

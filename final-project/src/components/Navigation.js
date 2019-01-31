@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+
 import {
   Collapse,
   Navbar,
@@ -6,11 +8,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap'
+  NavLink } from 'reactstrap'
 
 import SearchBox from './SearchBox'
 
@@ -28,6 +26,9 @@ export default class Navigation extends Component {
       isOpen: !this.state.isOpen
     });
   }
+  onChange(e) {
+    console.log(e)
+  }
   render() {
     return (
       <div>
@@ -37,30 +38,14 @@ export default class Navigation extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem className="mr-5">
-                <SearchBox />
+                <SearchBox onChange={this.onChange} />
               </NavItem>
               <NavItem>
                 <NavLink href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Add Recipe</NavLink>
+                <NavLink href="/new">Add Recipe</NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Categories
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Health
-                  </DropdownItem>
-                  <DropdownItem>
-                    Yummy
-                  </DropdownItem>
-                  <DropdownItem>
-                    Snacks
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
             </Nav>
           </Collapse>
         </Navbar>
