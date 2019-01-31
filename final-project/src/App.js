@@ -8,6 +8,7 @@ import Home from './views/Home'
 import OneRecipe from './views/OneRecipe'
 
 import './App.css';
+import PostRecipe from './components/PostRecipe';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/recipe/:id' component={OneRecipe}/>
+              <Route exact path='/new' component={PostRecipe}/>
             </Switch>
           </Router>
         </div>

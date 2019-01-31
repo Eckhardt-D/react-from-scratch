@@ -36,7 +36,7 @@ class Recipes extends Component {
             <CardImg 
               top 
               width="100%" 
-              src={recipe.images[0]} 
+              src={recipe.image} 
               alt="React-Recipes" />
             <CardBody>
               <CardTitle style={{fontSize: "1.2em", fontWeight: "bold"}}>{recipe.name}</CardTitle>
