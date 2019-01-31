@@ -53,7 +53,7 @@ class SearchBox extends Component {
         { this.props.recipes.map(
           recipe => recipe.name.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) !== -1 ? 
           <ListGroupItem onClick={() => this.goAhead(recipe.id)} key={recipe.id}>{recipe.name}</ListGroupItem> :
-          <ListGroupItem key="0">No results</ListGroupItem>) }
+          <ListGroupItem key="0">No results</ListGroupItem>)}
       </ListGroup>
     </div>
    );

@@ -134,7 +134,7 @@ class PostForm extends Component {
           <br />
           <div>
           <InputGroup>
-            <Input type="textarea" id="initialInput" onChange={e => this.onChangeIngredient(e, 0)} name="instructions" placeholder="Cooking Instructions" />
+            <Input type="textarea" id="initialInput" onChange={this.onChange} name="instructions" placeholder="Cooking Instructions" />
           </InputGroup>
           </div>
           <br />
