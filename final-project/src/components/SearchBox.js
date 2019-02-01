@@ -41,6 +41,12 @@ class SearchBox extends Component {
   }
 
   render() {
+  const ingredientList = this.props.recipes && this.props.recipes.length ? (
+    this.props.recipes.map(
+      recipe => recipe.name.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) !== -1 ? 
+      <ListGroupItem onClick={() => this.goAhead(recipe.id)} key={recipe.id}>{recipe.name}</ListGroupItem> :
+      <ListGroupItem key="0">No results</ListGroupItem>)
+  ) : ''
   return (
     <div style={{position: "relative"}}>
       <InputGroup>
@@ -50,10 +56,7 @@ class SearchBox extends Component {
         </InputGroupAddon>
       </InputGroup>
       <ListGroup className="searchList2">
-        { this.props.recipes.map(
-          recipe => recipe.name.toLowerCase().indexOf(this.state.searchValue.toLowerCase()) !== -1 ? 
-          <ListGroupItem onClick={() => this.goAhead(recipe.id)} key={recipe.id}>{recipe.name}</ListGroupItem> :
-          <ListGroupItem key="0">No results</ListGroupItem>)}
+        { ingredientList }
       </ListGroup>
     </div>
    );

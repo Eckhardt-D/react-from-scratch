@@ -21,7 +21,8 @@ class PostForm extends Component {
       instructions: '',
       image: '',
       createdBy: '',
-      time: ''
+      time: '',
+      isLoading: false
     }
 
     this.onChange = this.onChange.bind(this)
@@ -49,6 +50,7 @@ class PostForm extends Component {
   }
 
   onSubmit(e) {
+    this.setState({isLoading: true})
     e.preventDefault()
 
     const recipe = {
@@ -64,6 +66,8 @@ class PostForm extends Component {
     }
 
     this.props.createRecipe(recipe)
+    this.setState({isLoading: false})
+    window.location.href = '/'
   }
 
   setImage(file) {
@@ -145,8 +149,8 @@ class PostForm extends Component {
               The cover image will look best if it is 1280x720
             </FormText>
           </FormGroup>
-          <img onChange={this.uploadImage} className="mb-4" width="100%" src={this.state.image} alt="of food"/>
-          <Button className="mb-4" color="success" type="submit">Submit</Button>
+          {this.state.image !== ''? <img onChange={this.uploadImage} className="mb-4" width="100%" src={this.state.image} alt="of food"/> : ''}
+          <Button className="mb-4" color="success" type="submit">{!this.state.isLoading ? 'Submit' : 'Loading...'}</Button>
         </form>
       </Container>
       </div>

@@ -5,7 +5,6 @@ import { fetchRecipes } from '../actions/recipeActions';
 
 import { 
   Card, 
-  CardImg, 
   CardText, 
   CardBody, 
   CardTitle, 
@@ -31,12 +30,11 @@ class Recipes extends Component {
   render() {
     const recipeCards = this.props.recipes.map(recipe => {
       return ( 
-        <Col key={recipe.id} className="mt-3" lg="4" md="6" sm="12">
+        <Col key={recipe.id} className="mt-3" lg="4" md="6" xs="11">
           <Card className={"recipeCard "+recipe.id}>
-            <CardImg 
-              top 
-              width="100%" 
-              src={recipe.image} 
+            <div
+              className="card-image"
+              style={{backgroundImage: 'url('+ recipe.image +')'}}
               alt="React-Recipes" />
             <CardBody>
               <CardTitle style={{fontSize: "1.2em", fontWeight: "bold"}}>{recipe.name}</CardTitle>
@@ -56,7 +54,7 @@ class Recipes extends Component {
 
     return (
       <Container className="homeContent">
-        <Row>
+        <Row className="justify-content-center">
           {recipeCards}
         </Row>
       </Container>
